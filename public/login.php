@@ -1,3 +1,8 @@
+<?php
+require_once ('config.php'); // This is where the username and password are currently stored (hardcoded in variables)
+?>
+
+
 <?php require_once('../template/header.php'); ?>
 <link rel="stylesheet" type="text/css" href="../css/signin.css">
     <title>Sign in</title>
@@ -23,3 +28,26 @@
 </div>
 </body>
 </html>
+
+
+<?php
+
+/* Check if login form has been submitted */
+/* isset — Determine if a variable is declared and is different than NULL*/
+if(isset($_POST['Submit']))
+{
+
+    /* Check if the form's username and password matches */
+    /* these currently check against variable values stored in config.php but later we will see how these can be checked against information in a database*/
+    if( ($_POST['Username'] == $Username) && ($_POST['Password'] == $Password) )
+    {
+        /* Success: Set session variables and redirect to protected page */
+        $_SESSION['Username'] = $Username; //store Username to the session
+        header("location:index.php"); /* 'header() is used to redirect the browser */
+        exit; //we’ve just used header() to redirect to another page but we must terminate all current code so that it doesn’t run when we redirect
+
+    }
+    else
+        echo 'Incorrect Username or Password';
+}
+?>
