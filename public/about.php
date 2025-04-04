@@ -8,6 +8,9 @@
             <li><a href="index.php">Home</a></li>
             <li><a href="about.php">About</a></li>
             <li><a href="contacts.php">Contact</a></li>
+
+              <li><a href="services.php">Services</a></li>
+              <li><a href="faq.php">FAQ</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">PHP Login exercise - About page</h3>
@@ -15,7 +18,6 @@
 
         <div class="mainarea">
             <h1>Status: You are logged in  <?php echo $_SESSION['Username'];?> </h1>
-            <h1>Title </h1>
             <p class="lead">This is where we will put the logout button</p>
 
             <form action="logout.php" method="post" name="Logout_Form" class="form-signin">
